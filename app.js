@@ -29,7 +29,7 @@ class CanvasEmitter {
         // Inside initNetwork()
         const WS_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
             ? `ws://localhost:8080`
-            : `wss://YOUR-BACKEND-NAME.onrender.com`; // We will get this URL in Step 2!
+            : `https://live-whiteboard-thq8.onrender.com`; // We will get this URL in Step 2!
         this.ws = new WebSocket(WS_URL);
         this.ws.binaryType = 'arraybuffer';
         this.ws.onopen = () => console.log("✅ Connected to backend!");
