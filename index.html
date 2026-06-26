@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Whiteboard</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222;
+        }
+
+        canvas {
+            background: #fff;
+            cursor: crosshair;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="joinOverlay"
+        style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 100;">
+        <div style="background: white; padding: 30px; border-radius: 8px; text-align: center;">
+            <h2>Join the Whiteboard</h2>
+            <input type="text" id="usernameInput" placeholder="Enter your name"
+                style="padding: 10px; margin-bottom: 10px; width: 80%;">
+            <br>
+            <button id="joinBtn" style="padding: 10px 20px; cursor: pointer;">Enter</button>
+        </div>
+    </div>
+
+    <div id="userSidebar" style="position: absolute; top: 15px; left: 15px; background: rgba(15, 23, 42, 0.95); padding: 15px 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); width: 200px; color: #f8fafc; backdrop-filter: blur(8px); font-family: 'Nunito', sans-serif; display: none;">
+    <h3 style="margin: 0 0 15px 0; text-align: center; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: #94a3b8; font-weight: 800;">Active Users</h3>
+    <ul id="userList" style="list-style-type: none; padding: 0; margin: 0;">
+        </ul>
+</div>
+    <div class="controls">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+
+        <label for="sizeSlider">Size:</label>
+        <input type="range" id="sizeSlider" min="1" max="30" value="2">
+    </div>
+
+    <canvas id="whiteboard" width="800" height="600"></canvas>
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
