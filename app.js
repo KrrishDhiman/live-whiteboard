@@ -32,7 +32,15 @@ class CanvasEmitter {
             : `wss://live-whiteboard-thq8.onrender.com`; // We will get this URL in Step 2!
         this.ws = new WebSocket(WS_URL);
         this.ws.binaryType = 'arraybuffer';
-        this.ws.onopen = () => console.log("✅ Connected to backend!");
+        this.ws.onopen = () => {
+            console.log("✅ Connected to backend!");
+            const joinBtn = document.getElementById('joinBtn');
+            if (joinBtn) {
+                joinBtn.innerText = "Enter";
+                joinBtn.style.backgroundColor = "";
+            }
+            this.setupJoinUI();
+        };
         // 3. ADDED ERROR LOGGING
         this.ws.onerror = (error) => console.error("❌ Connection failed! Is Node running?", error);
         this.ws.onmessage = async (event) => {
@@ -60,14 +68,17 @@ class CanvasEmitter {
         joinBtn.addEventListener('click', () => {
             const name = usernameInput.value.trim();
             if (name) {
-                // 4. CHECK CONNECTION BEFORE SENDING
                 if (this.ws.readyState === WebSocket.OPEN) {
                     this.ws.send(JSON.stringify({ type: 'JOIN', name: name }));
                     joinOverlay.style.display = 'none';
                     userSidebar.style.display = 'block';
                 }
+                else if (this.ws.readyState === WebSocket.CONNECTING) {
+                    joinBtn.innerText = "Waking up server... (~15s)";
+                    joinBtn.style.backgroundColor = "#f59e0b";
+                }
                 else {
-                    alert("Backend not connected yet! Check terminal/console.");
+                    alert("Server connection failed. Try refreshing!");
                 }
             }
         });
