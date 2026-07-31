@@ -11,6 +11,10 @@ Built for real-time synchronization across multiple clients.
 - **Frontend**: HTML5 Canvas, TypeScript, CSS.
 - **Backend**: Node.js, WebSockets (`ws`).
 - **Database / PubSub**: Redis.
+ 
+
+<img width="2816" height="1536" alt="Gemini_Generated_Image_w6y5xiw6y5xiw6y5" src="https://github.com/user-attachments/assets/d7d6809a-3a4b-4009-95a6-de22d044990c" />
+
 
 ## Features
 - **Real-Time Drawing**: Sub-16ms latency for smooth 60fps rendering.
@@ -85,3 +89,4 @@ npm start
 - Achieves 42% payload reduction via binary serialization vs JSON.
 - Sustains >60fps client rendering during heavy data ingestion.
 
+<img width="1917" height="1018" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/b5e48a25-d71a-4103-b0e2-92502501af99" />
