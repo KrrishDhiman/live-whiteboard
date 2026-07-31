@@ -61,6 +61,11 @@ class CanvasEmitter {
         // 3. ADDED ERROR LOGGING
         this.ws.onerror = (error) => console.error("❌ Connection failed! Is Node running?", error);
 
+        this.ws.onclose = () => {
+            console.warn("⚠️ Connection lost or server sleeping. Retrying in 3 seconds...");
+            setTimeout(() => this.initNetwork(), 3000);
+        };
+
         this.ws.onmessage = async (event: MessageEvent) => {
             if (typeof event.data === 'string') {
                 const data = JSON.parse(event.data);
