@@ -6,7 +6,7 @@ Built for real-time synchronization across multiple clients.
 Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
 
 
-<img width="1920" height="1080" alt="2026-07-31 20-36-58" src="https://github.com/user-attachments/assets/f403e19b-dab8-4563-84fa-a6d280cc3ac2" />
+<img width="960" height="540" alt="2026-07-31 20-36-58" src="https://github.com/user-attachments/assets/f403e19b-dab8-4563-84fa-a6d280cc3ac2" />
 
 
 ## Architecture
@@ -15,7 +15,7 @@ Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
 - **Database / PubSub**: Redis.
  
 
-<img width="2816" height="1536" alt="Gemini_Generated_Image_w6y5xiw6y5xiw6y5" src="https://github.com/user-attachments/assets/d7d6809a-3a4b-4009-95a6-de22d044990c" />
+<img width="1408" height="768" alt="Gemini_Generated_Image_w6y5xiw6y5xiw6y5" src="https://github.com/user-attachments/assets/d7d6809a-3a4b-4009-95a6-de22d044990c" />
 
 
 ## Features
@@ -91,4 +91,4 @@ npm start
 - Achieves 42% payload reduction via binary serialization vs JSON.
 - Sustains >60fps client rendering during heavy data ingestion.
 
-<img width="1917" height="1018" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/b5e48a25-d71a-4103-b0e2-92502501af99" />
+<img width="958" height="509" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/b5e48a25-d71a-4103-b0e2-92502501af99" />
