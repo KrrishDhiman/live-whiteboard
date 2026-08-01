@@ -5,7 +5,7 @@ Built for real-time synchronization across multiple clients.
 
 Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
 
-
+Demo GIF: (takes 5-10 seconds to load)
 <img width="960" height="540" alt="2026-07-31 20-36-58 (1)" src="https://github.com/user-attachments/assets/1c9218d9-5521-4491-b2a0-c5d63d62c55d" />
 
 
