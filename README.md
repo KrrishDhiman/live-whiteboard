@@ -3,6 +3,8 @@
 A distributed, low-latency collaborative whiteboard.
 Built for real-time synchronization across multiple clients.
 
+Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
+
 
 <img width="1920" height="1080" alt="2026-07-31 20-36-58" src="https://github.com/user-attachments/assets/f403e19b-dab8-4563-84fa-a6d280cc3ac2" />
 
