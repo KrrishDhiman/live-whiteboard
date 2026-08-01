@@ -6,7 +6,7 @@ Built for real-time synchronization across multiple clients.
 Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
 
 
-<img width="240" height="135" alt="2026-07-31 20-36-58" src="https://github.com/user-attachments/assets/f403e19b-dab8-4563-84fa-a6d280cc3ac2" />
+<img width="960" height="540" alt="2026-07-31 20-36-58 (1)" src="https://github.com/user-attachments/assets/1c9218d9-5521-4491-b2a0-c5d63d62c55d" />
 
 
 ## Architecture
@@ -14,9 +14,7 @@ Try it out yourself!! Link: https://live-whiteboard-ivory.vercel.app/
 - **Backend**: Node.js, WebSockets (`ws`).
 - **Database / PubSub**: Redis.
  
-
-<img width="352" height="192" alt="Gemini_Generated_Image_w6y5xiw6y5xiw6y5" src="https://github.com/user-attachments/assets/d7d6809a-3a4b-4009-95a6-de22d044990c" />
-
+<img width="1408" height="768" alt="Gemini_Generated_Image_w6y5xiw6y5xiw6y5" src="https://github.com/user-attachments/assets/0bd960f6-a42d-4503-9a63-1fda016925b0" />
 
 ## Features
 - **Real-Time Drawing**: Sub-16ms latency for smooth 60fps rendering.
@@ -91,4 +89,4 @@ npm start
 - Achieves 42% payload reduction via binary serialization vs JSON.
 - Sustains >60fps client rendering during heavy data ingestion.
 
-<img width="240" height="128" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/b5e48a25-d71a-4103-b0e2-92502501af99" />
+<img width="960" height="509" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/ca417ef1-f2c0-4879-ac67-391b1612d8df" />
