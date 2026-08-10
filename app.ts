@@ -237,6 +237,13 @@ class CanvasEmitter {
     private transmitBuffer(): void {
         if (this.strokeBuffer.length === 0 || this.ws.readyState !== WebSocket.OPEN) return;
 
+        const binarySize = this.strokeBuffer.length * 8 * 4; // strokes × 8 floats × 4 bytes
+        const jsonEquivalent = JSON.stringify(this.strokeBuffer);
+        const jsonSize = new TextEncoder().encode(jsonEquivalent).byteLength;
+
+        const reduction = ((jsonSize - binarySize) / jsonSize * 100).toFixed(1);
+        console.log(`📦 Binary: ${binarySize}B | JSON would be: ${jsonSize}B | Savings: ${reduction}%`);
+
         const binaryPayload = new Float32Array(this.strokeBuffer.length * 8);
         let offset = 0;
 
