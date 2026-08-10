@@ -86,7 +86,10 @@ npm start
 ## Performance Metrics
 - Stress-tested locally using **Artillery**.
 - Handles 13,000+ concurrent WebSocket connections.
-- Achieves 42% payload reduction via binary serialization vs JSON.
+- Achieves 62% payload reduction via binary serialization vs JSON.
+  
+ <img width="960" height="509" alt="Screenshot 2026-08-11 005510" src="https://github.com/user-attachments/assets/9133ef09-0f1f-419b-8644-ffed12dd17a4" />
+  
 - Sustains >60fps client rendering during heavy data ingestion.
 
 <img width="960" height="509" alt="Screenshot 2026-07-31 191224" src="https://github.com/user-attachments/assets/ca417ef1-f2c0-4879-ac67-391b1612d8df" />
