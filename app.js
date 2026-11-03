@@ -1,19 +1,15 @@
 "use strict";
 class CanvasEmitter {
-    canvas;
-    ctx;
-    // State
-    isDrawing = false;
-    currentX = 0;
-    currentY = 0;
-    strokeBuffer = [];
-    activeUsers = [];
-    // Brush Settings
-    brushColor = { r: 0, g: 0, b: 0 };
-    brushSize = 2;
-    // Network
-    ws;
     constructor(canvasId) {
+        // State
+        this.isDrawing = false;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.strokeBuffer = [];
+        this.activeUsers = [];
+        // Brush Settings
+        this.brushColor = { r: 0, g: 0, b: 0 };
+        this.brushSize = 2;
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         this.initContext();
@@ -67,9 +63,9 @@ class CanvasEmitter {
         const joinBtn = document.getElementById('joinBtn');
         const usernameInput = document.getElementById('usernameInput');
         const userSidebar = document.getElementById('userSidebar');
-        if (!joinBtn)
+        if (!joinBtn || !usernameInput)
             return;
-        joinBtn.addEventListener('click', () => {
+        const performJoin = () => {
             const name = usernameInput.value.trim();
             if (name) {
                 if (this.ws.readyState === WebSocket.OPEN) {
@@ -84,6 +80,13 @@ class CanvasEmitter {
                 else {
                     alert("Server connection failed. Try refreshing!");
                 }
+            }
+        };
+        joinBtn.addEventListener('click', performJoin);
+        usernameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performJoin();
             }
         });
     }

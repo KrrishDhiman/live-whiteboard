@@ -88,9 +88,9 @@ class CanvasEmitter {
         const usernameInput = document.getElementById('usernameInput') as HTMLInputElement;
         const userSidebar = document.getElementById('userSidebar') as HTMLDivElement;
 
-        if (!joinBtn) return;
+        if (!joinBtn || !usernameInput) return;
 
-        joinBtn.addEventListener('click', () => {
+        const performJoin = () => {
             const name = usernameInput.value.trim();
             if (name) {
                 if (this.ws.readyState === WebSocket.OPEN) {
@@ -103,6 +103,14 @@ class CanvasEmitter {
                 } else {
                     alert("Server connection failed. Try refreshing!");
                 }
+            }
+        };
+
+        joinBtn.addEventListener('click', performJoin);
+        usernameInput.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performJoin();
             }
         });
     }

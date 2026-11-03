@@ -10,9 +10,14 @@ interface JoinOverlayProps {
 export const JoinOverlay: React.FC<JoinOverlayProps> = ({ isConnected, onJoin }) => {
   const [name, setName] = useState('');
 
+  const [statusMsg, setStatusMsg] = useState('');
+
   const handleSubmit = () => {
     if (!name.trim()) return;
-    if (!isConnected) return; // Don't allow join while still connecting
+    if (!isConnected) {
+      setStatusMsg('⏳ Server is still connecting / waking up (~15s). Please wait...');
+      return;
+    }
     onJoin(name.trim());
   };
 
@@ -66,6 +71,11 @@ export const JoinOverlay: React.FC<JoinOverlayProps> = ({ isConnected, onJoin })
           >
             {btnLabel}
           </button>
+          {statusMsg && (
+            <p style={{ color: '#f59e0b', fontSize: 12, marginTop: 12, fontFamily: 'Nunito, sans-serif' }}>
+              {statusMsg}
+            </p>
+          )}
         </form>
       </div>
     </div>
