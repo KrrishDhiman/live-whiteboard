@@ -10,14 +10,10 @@ interface JoinOverlayProps {
 export const JoinOverlay: React.FC<JoinOverlayProps> = ({ isConnected, onJoin }) => {
   const [name, setName] = useState('');
 
-  const handleClick = () => {
+  const handleSubmit = () => {
     if (!name.trim()) return;
     if (!isConnected) return; // Don't allow join while still connecting
     onJoin(name.trim());
-  };
-
-  const handleKey = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') handleClick();
   };
 
   const btnLabel = isConnected ? 'Enter' : 'Waking up server... (~15s)';
@@ -40,30 +36,37 @@ export const JoinOverlay: React.FC<JoinOverlayProps> = ({ isConnected, onJoin })
         <h2 style={{ marginBottom: 20, fontFamily: 'Nunito, sans-serif' }}>
           Join the Whiteboard
         </h2>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          onKeyDown={handleKey}
-          style={{
-            padding: '10px 16px', width: '80%', marginBottom: 12,
-            borderRadius: 8, border: '1px solid #334155',
-            background: '#0f172a', color: '#f8fafc', fontSize: 14,
-          }}
-        />
-        <br />
-        <button
-          onClick={handleClick}
-          style={{
-            padding: '10px 24px', cursor: 'pointer',
-            borderRadius: 8, border: 'none', background: btnColor,
-            color: '#fff', fontWeight: 700, fontSize: 14,
-            transition: 'background 0.2s',
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
           }}
         >
-          {btnLabel}
-        </button>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            autoFocus
+            onChange={(e) => setName(e.target.value)}
+            style={{
+              padding: '10px 16px', width: '80%', marginBottom: 12,
+              borderRadius: 8, border: '1px solid #334155',
+              background: '#0f172a', color: '#f8fafc', fontSize: 14,
+            }}
+          />
+          <br />
+          <button
+            type="submit"
+            style={{
+              padding: '10px 24px', cursor: 'pointer',
+              borderRadius: 8, border: 'none', background: btnColor,
+              color: '#fff', fontWeight: 700, fontSize: 14,
+              transition: 'background 0.2s',
+            }}
+          >
+            {btnLabel}
+          </button>
+        </form>
       </div>
     </div>
   );
